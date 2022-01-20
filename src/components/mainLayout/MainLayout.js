@@ -3,6 +3,7 @@ import { Container, Row } from "react-bootstrap";
 import BannerComp from "../banner/BannerComp";
 import AboutComp from "../about/AboutComp";
 import CollectionComp from "../collection/CollectionComp";
+import RoadmapComp from "../roadmap/RoadmapComp";
 import './MainLayout.scss';
 
 const MainLayout = () => {
@@ -11,12 +12,15 @@ const MainLayout = () => {
       <Row id="home" style={{ backgroundColor: "#FBEDFF" }}>
         <BannerComp />
       </Row>
-        <Row id="about">
-          <AboutComp />
-        </Row>
-        <Row id="collection">
-          <CollectionComp />
-        </Row>
+      <Row id="about">
+        <AboutComp />
+      </Row>
+      <Row id="collection">
+        <CollectionComp />
+      </Row>
+      <Row id="roadmap">
+        <RoadmapComp />
+      </Row>
     </Container>
   );
 };
