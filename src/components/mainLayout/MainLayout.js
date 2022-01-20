@@ -8,6 +8,7 @@ import FAQComp from "../faq/FAQComp";
 import RarityComp from "../rarity/RarityComp";
 
 import "./MainLayout.scss";
+import TeamComp from "../team/TeamComp";
 
 const MainLayout = () => {
   return (
@@ -29,6 +30,9 @@ const MainLayout = () => {
       </Row>
       <Row id="rarity">
         <RarityComp/>
+      </Row>
+      <Row id="team">
+        <TeamComp/>
       </Row>
     </Container>
   );
