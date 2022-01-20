@@ -6,7 +6,8 @@
   background-repeat: no-repeat;
   position: relative;
 
-  .top-center-shape, .right-center-shape {
+  .top-center-shape,
+  .right-center-shape {
     position: absolute;
   }
 
@@ -28,19 +29,27 @@
   }
 
   &-container {
-    min-height: 100%;
     padding: 24px 0 !important;
+    min-height: calc(100vh - 48px);
+    @include mobile {
+      min-height: calc(100vh - 56px);
+    }
+    @include tablet {
+      min-height: calc(100vh - 56px);
+    }
   }
 
   @include mobile {
     background-image: unset;
-    .right-center-shape, .top-center-shape {
+    .right-center-shape,
+    .top-center-shape {
       display: none;
     }
   }
   @include tablet {
     background-size: 100% 50%;
-    .right-center-shape, .top-center-shape {
+    .right-center-shape,
+    .top-center-shape {
       display: none;
     }
   }
@@ -56,7 +65,8 @@
   width: 100%;
   padding: 12px;
 
-  .right-side, .left-side {
+  .right-side,
+  .left-side {
     z-index: 1;
   }
 
@@ -102,7 +112,7 @@
       margin-top: 24px;
 
       .button-item {
-        background-color: #9D4FFD;
+        background-color: #9d4ffd;
         text-transform: uppercase;
         color: #ffffff;
         text-align: center;

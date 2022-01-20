@@ -1,0 +1,59 @@
+@import "../../styles//rwd.scss";
+
+.header-comp .header-comp-container {
+  @include mobile {
+    justify-content: flex-end !important;
+  }
+  @include tablet {
+    justify-content: flex-end !important;
+  }
+}
+
+.header-comp .header-comp-container .header-comp-menu {
+  width: 100%;
+  .menu-item {
+    color: #fff !important;
+    font-weight: bold;
+    position: relative;
+    &:after {
+      position: absolute;
+      content: "";
+      width: 0;
+      height: 4px;
+      background-color: whitesmoke;
+      left: 50%;
+      bottom: 0;
+      transition: all 0.4s ease-in-out;
+    }
+  }
+  .header-comp-items:hover .nav-link:after {
+    width: 100%;
+    left: 0;
+  }
+  .header-comp-items:not(:first-child) {
+    margin-top: 12px;
+  }
+  @include mobile {
+    .menu-item {
+      color: #000 !important;
+      &:after {
+        background-color: #000;
+      }
+    }
+  }
+  @include tablet {
+    .menu-item {
+      color: #000 !important;
+      &:after {
+        background-color: #000;
+      }
+    }
+  }
+}
+
+.header-comp .header-comp-container .header-comp-toggle-custom {
+  color: unset !important;
+  box-shadow: unset !important;
+  border: unset !important;
+  outline: none !important;
+}
