@@ -5,12 +5,14 @@
 
 .comp-height {
   min-height: 100vh;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 .comp-wave {
   position: absolute;
   width: 100%;
-  height: 100px;
+  height: 115px;
   bottom: 0;
   left: 0;
 }
