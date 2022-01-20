@@ -1,12 +1,192 @@
+@import "../../styles/rwd";
+
+$roadmapItemColor: (1: #139C94, 2: #6B6C13, 3: #A02D2D, 4: #F939FD, 5: #394CFD);
+
 .roadmap-comp {
   padding: 129px 0 24px !important;
+
+  &-container {
+    height: 100%;
+  }
+
+  @include mobile {
+    padding-top: 24px !important;
+    padding-bottom: 60px !important;
+  }
+  @include wide-desktop {
+    padding-bottom: 60px !important;
+  }
 }
 
 .roadmap-comp-container .roadmap-comp-content {
-  margin-top: 24px;
+  min-height: calc(100% - 48px - 24px);
+
+  &-container {
+    display: grid;
+    @include mobile {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 24px;
+    }
+    @include desktop {
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 24px;
+    }
+    @include wide-desktop {
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: unset;
+    }
+  }
+
   &-item {
-    height: 400px;
+    height: 450px;
     position: relative;
-    
+
+    @each $index, $color in $roadmapItemColor {
+      &:nth-child(#{$index}) {
+        .content-box, .roadmap-number {
+          background-color: $color;
+        }
+      }
+    }
+    @include mobile {
+      &:not(:first-child) {
+        margin-top: 64px;
+      }
+    }
+    @include tablet {
+      &:nth-child(4), &:nth-child(5) {
+        margin: 40px 0;
+      }
+      &:nth-child(5) {
+        grid-column: 3/4;
+      }
+    }
+    @include desktop {
+      &:nth-child(4), &:nth-child(5) {
+        margin-top: 40px;
+      }
+      &:nth-child(5) {
+        grid-column: 3/4;
+      }
+    }
+    @include wide-desktop {
+      padding: 10px;
+      &:nth-child(4), &:nth-child(5) {
+        margin-top: unset;
+      }
+      &:nth-child(5) {
+        grid-column: unset;
+      }
+      &:nth-child(odd) {
+        margin-top: 225px;
+        border-top: 2px solid #000;
+      }
+
+      &:nth-child(even) {
+        border-bottom: 2px solid #000;
+        padding-bottom: 40px;
+      }
+
+      &:nth-child(1):after {
+        content: "";
+        position: absolute;
+        height: 300px;
+        background-color: #000;
+        width: 2px;
+        left: 0;
+        top: 0;
+      }
+
+      &:nth-child(2), &:nth-child(3), &:nth-child(4) {
+        &:after {
+          content: "";
+          position: absolute;
+          height: 223px;
+          background-color: #000;
+          width: 2px;
+          left: 0;
+          bottom: 0;
+        }
+      }
+
+      &:nth-child(3):after {
+        content: "";
+        position: absolute;
+        height: 223px;
+        background-color: #000;
+        width: 2px;
+        left: 0;
+        top: 0;
+      }
+
+      &:nth-child(4):before {
+        content: "";
+        position: absolute;
+        height: 223px;
+        background-color: #000;
+        width: 2px;
+        right: 0;
+        bottom: 0;
+      }
+
+      &:nth-child(5):after {
+        content: "";
+        position: absolute;
+        height: 300px;
+        background-color: #000;
+        width: 2px;
+        right: 0;
+        top: 0;
+      }
+    }
+  }
+}
+
+.roadmap-comp-content-item .content-box {
+  height: 100%;
+  padding: 24px 0;
+  position: relative;
+
+  .content-container {
+    height: 100%;
+    background-color: #E0D8D8;
+    border-radius: 40px 0;
+    padding: 12px 24px;
+
+    .title-container .title {
+      font-size: 32px;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+      color: #272727;
+    }
+
+    .subtitle-container {
+      margin-top: 24px;
+
+      .content {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .roadmap-number {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    border: 10px solid #fff;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -40px;
+
+    .number {
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: bold;
+    }
   }
 }

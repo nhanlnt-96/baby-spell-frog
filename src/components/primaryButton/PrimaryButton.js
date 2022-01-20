@@ -5,7 +5,7 @@ import './PrimaryButton.scss';
 
 const PrimaryButton = ({onBtnClick,buttonActive,buttonName}) => {
   return (
-    <div className="comp-primary-button">
+    <div data-aos="zoom-in" className="comp-primary-button">
       <button onClick={onBtnClick} className={`button-item ${buttonActive ? "active" : ""}`}>
         <p className="button-name">{buttonName}</p>
         <div className="button-icon d-flex justify-content-center align-items-center">

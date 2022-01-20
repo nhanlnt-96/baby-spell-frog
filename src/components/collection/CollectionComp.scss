@@ -4,14 +4,23 @@
   background-color: #fff;
   padding: 24px 0 !important;
   position: relative;
+
   &-container {
     .title-container .title {
       color: #000;
+      @include mobile {
+        color: #ffffff;
+      }
     }
   }
-  .comp-wave{
+
+  .comp-wave {
     transform: scaleY(-1);
     bottom: -115px;
+  }
+
+  @include mobile {
+    background-color: transparent;
   }
 }
 
@@ -20,6 +29,6 @@
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 12px;
   @include mobile {
-  grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
 }

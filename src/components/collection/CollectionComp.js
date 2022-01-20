@@ -14,7 +14,7 @@ const CollectionComp = () => {
         <Row className="collection-img">
           {
             collectionData.map((val, index) => (
-              <img src={val} key={index} alt="collection-frog" />
+              <img data-aos="zoom-in" src={val} key={index} alt="collection-frog" />
             ))
           }
         </Row>
