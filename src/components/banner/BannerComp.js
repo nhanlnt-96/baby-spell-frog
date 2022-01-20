@@ -1,16 +1,17 @@
-import React, {useEffect, useState} from "react";
-import {Col, Container, Row} from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
 import TopCenterShape from "../../assets/imgs/shape1.svg";
 import RightCenter from "../../assets/imgs/shape2.svg";
 import BannerImg from "../../assets/imgs/bannerImg.png";
 import ConnectGif from "../../assets/gifs/loading.gif";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchData } from "../../redux/data/dataActions";
+import { ResponsiveWrapper, StyledButton, StyledLink, StyledRoundButton, truncate } from "../../styles/styleComponent";
+import * as s from "../../styles/globalStyles";
+import { connect } from "../../redux/blockchain/blockchainActions";
 
 import "./BannerComp.scss";
-import {useDispatch, useSelector} from "react-redux";
-import {fetchData} from "../../redux/data/dataActions";
-import {ResponsiveWrapper, StyledButton, StyledLink, StyledRoundButton, truncate} from "../../styles/styleComponent";
-import * as s from "../../styles/globalStyles";
-import {connect} from "../../redux/blockchain/blockchainActions";
+import HeaderComp from "../header/HeaderComp";
 
 const BannerComp = () => {
   const [buttonName, setButtonName] = useState("JOIN US");
@@ -39,7 +40,7 @@ const BannerComp = () => {
     MARKETPLACE_LINK: "",
     SHOW_BACKGROUND: false,
   });
-  
+
   const claimNFTs = () => {
     let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
@@ -71,7 +72,7 @@ const BannerComp = () => {
         dispatch(fetchData(blockchain.account));
       });
   };
-  
+
   const decrementMintAmount = () => {
     let newMintAmount = mintAmount - 1;
     if (newMintAmount < 1) {
@@ -79,7 +80,7 @@ const BannerComp = () => {
     }
     setMintAmount(newMintAmount);
   };
-  
+
   const incrementMintAmount = () => {
     let newMintAmount = mintAmount + 1;
     if (newMintAmount > 10) {
@@ -87,13 +88,13 @@ const BannerComp = () => {
     }
     setMintAmount(newMintAmount);
   };
-  
+
   const getData = () => {
     if (blockchain.account !== "" && blockchain.smartContract !== null) {
       dispatch(fetchData(blockchain.account));
     }
   };
-  
+
   const getConfig = async () => {
     const configResponse = await fetch("/config/config.json", {
       headers: {
@@ -104,15 +105,15 @@ const BannerComp = () => {
     const config = await configResponse.json();
     SET_CONFIG(config);
   };
-  
+
   useEffect(() => {
     getConfig();
   }, []);
-  
+
   useEffect(() => {
     getData();
   }, [blockchain.account]);
-  
+
   const onJoinUsBtnClick = (e) => {
     setButtonName("Thanks");
     setButtonActive(true);
@@ -122,8 +123,9 @@ const BannerComp = () => {
   };
   return (
     <Container className="banner-comp comp-height" fluid>
-      <img className="top-center-shape" src={TopCenterShape} alt="baby-spell-frog"/>
-      <img className="right-center-shape" src={RightCenter} alt="baby-spell-frog"/>
+      <img className="top-center-shape" src={TopCenterShape} alt="baby-spell-frog" />
+      <img className="right-center-shape" src={RightCenter} alt="baby-spell-frog" />
+      <HeaderComp />
       <Container className="banner-comp-container d-flex justify-content-center align-items-center">
         <Row className="banner-comp-content">
           <Col lg={blockchain.account ? 6 : 8} md={blockchain.account ? 6 : 8} sm={12} className="left-side d-flex flex-column justify-content-center align-items-center">
@@ -141,7 +143,7 @@ const BannerComp = () => {
                   <button onClick={onJoinUsBtnClick} className={`button-item ${buttonActive ? "active" : ""}`}>
                     <p className="button-name">{buttonName}</p>
                     <div className="button-icon d-flex justify-content-center align-items-center">
-                      <img src={ConnectGif} alt="connecting-to-wallet-frog"/>
+                      <img src={ConnectGif} alt="connecting-to-wallet-frog" />
                     </div>
                   </button>
                 </div>
@@ -151,7 +153,7 @@ const BannerComp = () => {
           <Col lg={blockchain.account ? 6 : 4} md={blockchain.account ? 6 : 4} sm={12} className="right-side d-flex justify-content-center align-items-center">
             {
               !blockchain.account ? (
-                <img src={BannerImg} alt="baby-spell-frog"/>
+                <img src={BannerImg} alt="baby-spell-frog" />
               ) : (
                 <ResponsiveWrapper flex={1} className="mint-box" test>
                   <s.Container
@@ -186,20 +188,20 @@ const BannerComp = () => {
                         {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
                       </StyledLink>
                     </s.TextDescription>
-                    <s.SpacerSmall/>
+                    <s.SpacerSmall />
                     {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
                       <>
                         <s.TextTitle
-                          style={{textAlign: "center", color: "var(--accent-text)"}}
+                          style={{ textAlign: "center", color: "var(--accent-text)" }}
                         >
                           The sale has ended.
                         </s.TextTitle>
                         <s.TextDescription
-                          style={{textAlign: "center", color: "var(--accent-text)"}}
+                          style={{ textAlign: "center", color: "var(--accent-text)" }}
                         >
                           You can still find {CONFIG.NFT_NAME} on
                         </s.TextDescription>
-                        <s.SpacerSmall/>
+                        <s.SpacerSmall />
                         <StyledLink target={"_blank"} href={CONFIG.MARKETPLACE_LINK}>
                           {CONFIG.MARKETPLACE}
                         </StyledLink>
@@ -207,20 +209,20 @@ const BannerComp = () => {
                     ) : (
                       <>
                         <s.TextTitle
-                          style={{textAlign: "center", color: "var(--accent-text)"}}
+                          style={{ textAlign: "center", color: "var(--accent-text)" }}
                         >
                           1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{" "}
                           {CONFIG.NETWORK.SYMBOL}.
                         </s.TextTitle>
-                        <s.SpacerXSmall/>
+                        <s.SpacerXSmall />
                         <s.TextDescription
-                          style={{textAlign: "center", color: "var(--accent-text)"}}
+                          style={{ textAlign: "center", color: "var(--accent-text)" }}
                         >
                           Excluding gas fees.
                         </s.TextDescription>
-                        <s.SpacerSmall/>
+                        <s.SpacerSmall />
                         {blockchain.account === "" ||
-                        blockchain.smartContract === null ? (
+                          blockchain.smartContract === null ? (
                           <s.Container ai={"center"} jc={"center"}>
                             <s.TextDescription
                               style={{
@@ -230,10 +232,10 @@ const BannerComp = () => {
                             >
                               Connect to the {CONFIG.NETWORK.NAME} network
                             </s.TextDescription>
-                            <s.SpacerSmall/>
+                            <s.SpacerSmall />
                             {blockchain.errorMsg !== "" ? (
                               <>
-                                <s.SpacerSmall/>
+                                <s.SpacerSmall />
                                 <s.TextDescription
                                   style={{
                                     textAlign: "center",
@@ -255,10 +257,10 @@ const BannerComp = () => {
                             >
                               {feedback}
                             </s.TextDescription>
-                            <s.SpacerMedium/>
+                            <s.SpacerMedium />
                             <s.Container ai={"center"} jc={"center"} fd={"row"}>
                               <StyledRoundButton
-                                style={{lineHeight: 0.4}}
+                                style={{ lineHeight: 0.4 }}
                                 disabled={claimingNft ? 1 : 0}
                                 onClick={(e) => {
                                   e.preventDefault();
@@ -267,7 +269,7 @@ const BannerComp = () => {
                               >
                                 -
                               </StyledRoundButton>
-                              <s.SpacerMedium/>
+                              <s.SpacerMedium />
                               <s.TextDescription
                                 style={{
                                   textAlign: "center",
@@ -276,7 +278,7 @@ const BannerComp = () => {
                               >
                                 {mintAmount}
                               </s.TextDescription>
-                              <s.SpacerMedium/>
+                              <s.SpacerMedium />
                               <StyledRoundButton
                                 disabled={claimingNft ? 1 : 0}
                                 onClick={(e) => {
@@ -287,7 +289,7 @@ const BannerComp = () => {
                                 +
                               </StyledRoundButton>
                             </s.Container>
-                            <s.SpacerSmall/>
+                            <s.SpacerSmall />
                             <s.Container ai={"center"} jc={"center"} fd={"row"}>
                               <StyledButton
                                 disabled={claimingNft ? 1 : 0}
