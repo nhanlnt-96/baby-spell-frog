@@ -1,0 +1,87 @@
+@import "../../styles/variables";
+@import "../../styles/rwd";
+
+.rarity-comp {
+  padding: 24px 0 !important;
+  background: url("../../assets/imgs/rarityBg.png") no-repeat center;
+  background-size: 100% 100%;
+
+  &-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  @include mobile {
+    background: unset;
+  }
+}
+
+.rarity-comp-container .rarity-box {
+  height: 400px;
+  flex: 0 0 calc(33.33% - 100px);
+  margin: 50px;
+  padding: 20px;
+  @each $index, $color in $arrayGradient {
+    &:nth-child(#{$index + 1}) {
+      background: $color;
+    }
+  }
+
+  &:nth-child(2), &:nth-child(5) {
+    border-radius: 60px 60px 60px 0;
+  }
+
+  &:nth-child(3) {
+    border-radius: 60px;
+  }
+
+  &:nth-child(4), &:nth-child(6) {
+    border-radius: 60px 60px 0 60px;
+  }
+
+  .rank-name .name {
+    font-weight: bold;
+    font-size: 35px;
+    text-align: center;
+  }
+
+  .rank-img {
+    margin: 24px 0;
+
+    img {
+      width: 180px;
+    }
+  }
+
+  .progress-container {
+    width: 100%;
+    height: 10px;
+    background-color: #ffffff;
+
+    .progress-percent {
+      background-color: #04767D;
+      height: 100%;
+    }
+  }
+
+  @include mobile {
+    flex: 1;
+    margin: unset;
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+  }
+  @include tablet {
+    flex: 0 0 calc(33.33% - 20px);
+    margin: 20px;
+  }
+  @include desktop {
+    flex: 0 0 calc(33.33% - 20px);
+    margin: 20px;
+  }
+  @include wide-desktop {
+    flex: 0 0 calc(33.33% - 100px);
+    margin: 50px;
+  }
+}

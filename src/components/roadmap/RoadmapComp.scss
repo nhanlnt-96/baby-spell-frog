@@ -1,6 +1,5 @@
 @import "../../styles/rwd";
-
-$roadmapItemColor: (1: #139C94, 2: #6B6C13, 3: #A02D2D, 4: #F939FD, 5: #394CFD);
+@import "../../styles/variables";
 
 .roadmap-comp {
   padding: 129px 0 24px !important;
@@ -44,7 +43,7 @@ $roadmapItemColor: (1: #139C94, 2: #6B6C13, 3: #A02D2D, 4: #F939FD, 5: #394CFD);
     height: 450px;
     position: relative;
 
-    @each $index, $color in $roadmapItemColor {
+    @each $index, $color in $arrayColor {
       &:nth-child(#{$index}) {
         .content-box, .roadmap-number {
           background-color: $color;
