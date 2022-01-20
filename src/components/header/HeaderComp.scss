@@ -30,10 +30,10 @@
     width: 100%;
     left: 0;
   }
-  .header-comp-items:not(:first-child) {
-    margin-top: 12px;
-  }
   @include mobile {
+    .header-comp-items:not(:first-child) {
+      margin-top: 12px;
+    }
     .menu-item {
       color: #000 !important;
       &:after {
@@ -42,6 +42,9 @@
     }
   }
   @include tablet {
+    .header-comp-items:not(:first-child) {
+      margin-top: 12px;
+    }
     .menu-item {
       color: #000 !important;
       &:after {

@@ -3,15 +3,15 @@ import { Col, Container, Row } from "react-bootstrap";
 import TopCenterShape from "../../assets/imgs/shape1.svg";
 import RightCenter from "../../assets/imgs/shape2.svg";
 import BannerImg from "../../assets/imgs/bannerImg.png";
-import ConnectGif from "../../assets/gifs/loading.gif";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "../../redux/data/dataActions";
 import { ResponsiveWrapper, StyledButton, StyledLink, StyledRoundButton, truncate } from "../../styles/styleComponent";
 import * as s from "../../styles/globalStyles";
 import { connect } from "../../redux/blockchain/blockchainActions";
+import HeaderComp from "../header/HeaderComp";
+import PrimaryButton from "../primaryButton/PrimaryButton";
 
 import "./BannerComp.scss";
-import HeaderComp from "../header/HeaderComp";
 
 const BannerComp = () => {
   const [buttonName, setButtonName] = useState("JOIN US");
@@ -139,14 +139,7 @@ const BannerComp = () => {
             </div>
             {
               !blockchain.account && (
-                <div className="content-button">
-                  <button onClick={onJoinUsBtnClick} className={`button-item ${buttonActive ? "active" : ""}`}>
-                    <p className="button-name">{buttonName}</p>
-                    <div className="button-icon d-flex justify-content-center align-items-center">
-                      <img src={ConnectGif} alt="connecting-to-wallet-frog" />
-                    </div>
-                  </button>
-                </div>
+                <PrimaryButton onBtnClick={onJoinUsBtnClick} buttonActive={buttonActive} buttonName={buttonName}/>
               )
             }
           </Col>
