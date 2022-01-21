@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useLayoutEffect, useState} from "react";
 import {Col, Container, Row} from "react-bootstrap";
 import TopCenterShape from "../../assets/imgs/shape1.svg";
 import RightCenter from "../../assets/imgs/shape2.svg";
-import BannerImg from "../../assets/imgs/bannerImg.png";
+import DesktopBanner from "../../assets/imgs/desktopBanner.png";
+import MobileBanner from "../../assets/imgs/mobileBanner.png";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchData} from "../../redux/data/dataActions";
 import {ResponsiveWrapper, StyledButton, StyledLink, StyledRoundButton, truncate} from "../../styles/styleComponent";
@@ -13,7 +14,22 @@ import PrimaryButton from "../primaryButton/PrimaryButton";
 
 import "./BannerComp.scss";
 
+export const useWindowSize = () => {
+  const [currentWidth, setCurrentWidth] = useState(0);
+  useLayoutEffect(() => {
+    const updateSize = () => {
+      setCurrentWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", updateSize);
+    updateSize();
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+  return currentWidth;
+};
+
+
 const BannerComp = () => {
+  const currentScreen = useWindowSize();
   const [buttonName, setButtonName] = useState("JOIN US");
   const [buttonActive, setButtonActive] = useState(false);
   const dispatch = useDispatch();
@@ -126,9 +142,12 @@ const BannerComp = () => {
       <img className="top-center-shape" src={TopCenterShape} alt="baby-spell-frog"/>
       <img className="right-center-shape" src={RightCenter} alt="baby-spell-frog"/>
       <HeaderComp/>
-      <Container className="banner-comp-container d-flex justify-content-center align-items-center">
+      <Container className="banner-comp-container d-flex flex-column justify-content-center align-items-center">
+        <Row className="banner-comp-img">
+          <img data-aos="zoom-in" src={currentScreen < 768 ? MobileBanner : DesktopBanner} alt="baby-spell-frog"/>
+        </Row>
         <Row className="banner-comp-content">
-          <Col lg={blockchain.account ? 6 : 8} md={blockchain.account ? 6 : 8} sm={12}
+          <Col lg={blockchain.account ? 6 : 12} md={blockchain.account ? 6 : 12} sm={12}
                className="left-side d-flex flex-column justify-content-center align-items-center">
             <div className="content-title">
               <h1 data-aos="zoom-in" className="title">welcome to baby spell frog</h1>
@@ -146,12 +165,10 @@ const BannerComp = () => {
               )
             }
           </Col>
-          <Col lg={blockchain.account ? 6 : 4} md={blockchain.account ? 6 : 4} sm={12}
-               className="right-side d-flex justify-content-center align-items-center">
-            {
-              !blockchain.account ? (
-                <img data-aos="zoom-in" src={BannerImg} alt="baby-spell-frog"/>
-              ) : (
+          {
+            blockchain.account && (
+              <Col data-aos="fade-left" lg={6} md={6} sm={12}
+                   className="right-side d-flex justify-content-center align-items-center">
                 <ResponsiveWrapper data-aos="zoom-in" flex={1} className="mint-box" test>
                   <s.Container
                     flex={2}
@@ -305,9 +322,9 @@ const BannerComp = () => {
                     )}
                   </s.Container>
                 </ResponsiveWrapper>
-              )
-            }
-          </Col>
+              </Col>
+            )
+          }
         </Row>
       </Container>
     </Container>
