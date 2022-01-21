@@ -1,10 +1,10 @@
 import React from "react";
 import {Col, Container, Row} from "react-bootstrap";
 import TitleComp from "../title/TitleComp";
-import TeamMember from "../../assets/imgs/teamMember.jpeg";
 import {FaDiscord, FaFacebookF, FaTelegram} from "react-icons/all";
 
 import "./TeamComp.scss";
+import {teamData} from "../../configs/teamData";
 
 const TeamComp = () => {
   return (
@@ -13,18 +13,20 @@ const TeamComp = () => {
         <TitleComp title={"TEAM"}/>
         <Row className="team-comp-content justify-content-center align-items-center">
           {
-            [...new Array(3)].map(() => (
-              <Col data-aos="zoom-in" lg={4} md={6} sm={12}
+            teamData.map((val, index) => (
+              <Col key={index} data-aos="zoom-in" lg={6} md={6} sm={12}
                    className="team-box d-flex justify-content-center align-items-center">
                 <div className="team-box-container">
                   <div className="team-ava">
-                    <img src={TeamMember} alt="frogs-team"/>
+                    <div className="team-ava-container">
+                      <img src={val.ava} alt="frogs-team"/>
+                    </div>
                   </div>
-                  <div className="team-name">
-                    <p className="name">Lorem.</p>
+                  <div className="team-name d-flex justify-content-center align-items-center">
+                    <p className="name">{val.name}</p>
                   </div>
                   <div className="team-about">
-                    <p className="about">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, sed.</p>
+                    <p className="about">{val.about}</p>
                   </div>
                 </div>
               </Col>
