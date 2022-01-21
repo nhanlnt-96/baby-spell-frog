@@ -1,4 +1,4 @@
-@import "../../styles//rwd.scss";
+@import "../../styles/rwd";
 
 .header-comp .header-comp-container {
   @include mobile {
@@ -11,10 +11,12 @@
 
 .header-comp .header-comp-container .header-comp-menu {
   width: 100%;
+
   .menu-item {
     color: #fff !important;
     font-weight: bold;
     position: relative;
+
     &:after {
       position: absolute;
       content: "";
@@ -26,16 +28,19 @@
       transition: all 0.4s ease-in-out;
     }
   }
+
   .header-comp-items:hover .nav-link:after {
     width: 100%;
     left: 0;
   }
+
   @include mobile {
     .header-comp-items:not(:first-child) {
       margin-top: 12px;
     }
     .menu-item {
       color: #000 !important;
+
       &:after {
         background-color: #000;
       }
@@ -47,12 +52,46 @@
     }
     .menu-item {
       color: #000 !important;
+
       &:after {
         background-color: #000;
       }
     }
   }
 }
+
+.header-comp .header-comp-container .header-comp-social {
+  .item {
+    font-size: 20px;
+    color: #ffffff;
+
+    &:not(:first-child) {
+      margin-left: 12px;
+    }
+
+    &:hover {
+      color: #6B6C13;
+    }
+  }
+
+  @include mobile {
+    flex-direction: row;
+    margin-top: 12px;
+    justify-content: space-evenly;
+    .item {
+      color: #000000;
+    }
+  }
+  @include tablet {
+    flex-direction: row;
+    margin-top: 12px;
+    justify-content: space-evenly;
+    .item {
+      color: #000000;
+    }
+  }
+}
+
 
 .header-comp .header-comp-container .header-comp-toggle-custom {
   color: unset !important;

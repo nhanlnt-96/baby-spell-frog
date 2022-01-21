@@ -1,7 +1,7 @@
 import React from "react";
 import {Col, Container, Row} from "react-bootstrap";
 import TitleComp from "../title/TitleComp";
-import {FaDiscord, FaFacebookF, FaTelegram} from "react-icons/all";
+import {BsMedium, FaDiscord, FaTwitter} from "react-icons/all";
 
 import "./TeamComp.scss";
 import {teamData} from "../../configs/teamData";
@@ -34,9 +34,9 @@ const TeamComp = () => {
           }
         </Row>
         <Row className="team-social d-flex justify-content-center align-items-center">
-          <a href="#"><FaFacebookF/></a>
-          <a href="#"><FaTelegram/></a>
-          <a href="#"><FaDiscord/></a>
+          <a href="https://mobile.twitter.com/BabySpellFrogs"><FaTwitter/></a>
+          <a href="https://discord.gg/QynaGaYB"><FaDiscord/></a>
+          <a href="https://medium.com/@spellfrogs1"><BsMedium/></a>
         </Row>
       </Container>
     </Container>
