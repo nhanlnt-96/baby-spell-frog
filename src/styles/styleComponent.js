@@ -16,6 +16,12 @@ export const StyledButton = styled.button`
   box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
   -webkit-box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
   -moz-box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
+  transition: .3s;
+
+  :hover {
+    letter-spacing: 5px;
+  }
+
   :active {
     box-shadow: none;
     -webkit-box-shadow: none;
@@ -41,6 +47,12 @@ export const StyledRoundButton = styled.button`
   box-shadow: 0px 4px 0px -2px rgba(250, 250, 250, 0.3);
   -webkit-box-shadow: 0px 4px 0px -2px rgba(250, 250, 250, 0.3);
   -moz-box-shadow: 0px 4px 0px -2px rgba(250, 250, 250, 0.3);
+
+  :hover {
+    background-color: rgba(0, 0, 0, .6) !important;
+    color: #ffffff !important;
+  }
+
   :active {
     box-shadow: none;
     -webkit-box-shadow: none;

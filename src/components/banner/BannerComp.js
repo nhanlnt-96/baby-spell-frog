@@ -175,10 +175,9 @@ const BannerComp = () => {
                     jc={"center"}
                     ai={"center"}
                     style={{
-                      backgroundColor: "var(--accent)",
+                      backgroundColor: "#fff",
                       padding: 24,
-                      borderRadius: 24,
-                      border: "4px dashed var(--secondary)",
+                      borderRadius: 10,
                       boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
                     }}
                   >
@@ -187,7 +186,7 @@ const BannerComp = () => {
                         textAlign: "center",
                         fontSize: 50,
                         fontWeight: "bold",
-                        color: "var(--accent-text)",
+                        color: "#000",
                       }}
                     >
                       {data.totalSupply} / {CONFIG.MAX_SUPPLY}
@@ -206,12 +205,12 @@ const BannerComp = () => {
                     {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
                       <>
                         <s.TextTitle
-                          style={{textAlign: "center", color: "var(--accent-text)"}}
+                          style={{textAlign: "center", color: "#000"}}
                         >
                           The sale has ended.
                         </s.TextTitle>
                         <s.TextDescription
-                          style={{textAlign: "center", color: "var(--accent-text)"}}
+                          style={{textAlign: "center", color: "#000"}}
                         >
                           You can still find {CONFIG.NFT_NAME} on
                         </s.TextDescription>
@@ -223,29 +222,19 @@ const BannerComp = () => {
                     ) : (
                       <>
                         <s.TextTitle
-                          style={{textAlign: "center", color: "var(--accent-text)"}}
+                          style={{textAlign: "center", color: "#000"}}
                         >
                           1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{" "}
                           {CONFIG.NETWORK.SYMBOL}.
                         </s.TextTitle>
-                        <s.SpacerXSmall/>
                         <s.TextDescription
-                          style={{textAlign: "center", color: "var(--accent-text)"}}
+                          style={{textAlign: "center", color: "#000"}}
                         >
                           Excluding gas fees.
                         </s.TextDescription>
-                        <s.SpacerSmall/>
                         {blockchain.account === "" ||
                         blockchain.smartContract === null ? (
                           <s.Container ai={"center"} jc={"center"}>
-                            <s.TextDescription
-                              style={{
-                                textAlign: "center",
-                                color: "var(--accent-text)",
-                              }}
-                            >
-                              Connect to the {CONFIG.NETWORK.NAME} network
-                            </s.TextDescription>
                             <s.SpacerSmall/>
                             {blockchain.errorMsg !== "" ? (
                               <>
@@ -253,7 +242,7 @@ const BannerComp = () => {
                                 <s.TextDescription
                                   style={{
                                     textAlign: "center",
-                                    color: "var(--accent-text)",
+                                    color: "#000",
                                   }}
                                 >
                                   {blockchain.errorMsg}
@@ -266,46 +255,79 @@ const BannerComp = () => {
                             <s.TextDescription
                               style={{
                                 textAlign: "center",
-                                color: "var(--accent-text)",
+                                color: "#000",
                               }}
                             >
                               {feedback}
                             </s.TextDescription>
                             <s.SpacerMedium/>
                             <s.Container ai={"center"} jc={"center"} fd={"row"}>
+                              <s.TextDescription
+                                style={{
+                                  color: "#000",
+                                  border: "1px solid rgba(0,0,0,.6)",
+                                  width: "200px",
+                                  borderRadius: 5,
+                                  padding: 10,
+                                  fontWeight: "bold",
+                                  position: "relative"
+                                }}
+                              >
+                                <s.TextDescription style={{
+                                  color: "rgba(0,0,0,.6)",
+                                  backgroundColor: "#fff",
+                                  position: "absolute",
+                                  lineHeight: "26px",
+                                  top: "-13px",
+                                  padding: "0 5px"
+                                }}>
+                                  Quantity
+                                </s.TextDescription>
+                                {mintAmount}
+                              </s.TextDescription>
+                            </s.Container>
+                            <s.SpacerMedium/>
+                            <s.Container ai={"center"} jc={"center"} fd={"row"}>
                               <StyledRoundButton
-                                style={{lineHeight: 0.4}}
+                                style={{
+                                  borderRadius: 5,
+                                  color: "#A02D2D",
+                                  border: ".5px solid rgba(0,0,0,.6)",
+                                  backgroundColor: "transparent",
+                                  width: 60,
+                                  padding: 10
+                                }}
                                 disabled={claimingNft ? 1 : 0}
                                 onClick={(e) => {
                                   e.preventDefault();
                                   decrementMintAmount();
                                 }}
                               >
-                                -
+                                Less
                               </StyledRoundButton>
                               <s.SpacerMedium/>
-                              <s.TextDescription
-                                style={{
-                                  textAlign: "center",
-                                  color: "var(--accent-text)",
-                                }}
-                              >
-                                {mintAmount}
-                              </s.TextDescription>
-                              <s.SpacerMedium/>
                               <StyledRoundButton
+                                style={{
+                                  borderRadius: 5,
+                                  color: "#139C94",
+                                  border: ".5px solid rgba(0,0,0,.6)",
+                                  backgroundColor: "transparent",
+                                  width: 60,
+                                  padding: 10
+                                }}
                                 disabled={claimingNft ? 1 : 0}
                                 onClick={(e) => {
                                   e.preventDefault();
                                   incrementMintAmount();
                                 }}
                               >
-                                +
+                                More
                               </StyledRoundButton>
                             </s.Container>
                             <s.SpacerSmall/>
                             <s.Container ai={"center"} jc={"center"} fd={"row"}>
                               <StyledButton
+                                style={{backgroundColor: "#139C94"}}
                                 disabled={claimingNft ? 1 : 0}
                                 onClick={(e) => {
                                   e.preventDefault();
