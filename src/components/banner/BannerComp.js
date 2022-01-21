@@ -11,6 +11,7 @@ import * as s from "../../styles/globalStyles";
 import {connect} from "../../redux/blockchain/blockchainActions";
 import HeaderComp from "../header/HeaderComp";
 import PrimaryButton from "../primaryButton/PrimaryButton";
+import {notification} from "antd";
 
 import "./BannerComp.scss";
 
@@ -137,11 +138,24 @@ const BannerComp = () => {
     dispatch(connect());
     getData();
   };
+  useEffect(() => {
+    if (buttonActive && !blockchain.account) {
+      setButtonActive(false);
+      setButtonName("JOIN US");
+    }
+  });
   return (
     <Container className="banner-comp comp-height" fluid>
       <img className="top-center-shape" src={TopCenterShape} alt="baby-spell-frog"/>
       <img className="right-center-shape" src={RightCenter} alt="baby-spell-frog"/>
       <HeaderComp/>
+      {
+        blockchain.errorMsg && notification.info({
+          message: `Error`,
+          description: blockchain.errorMsg,
+          placement: "bottomRight",
+        })
+      }
       <Container className="banner-comp-container d-flex flex-column justify-content-center align-items-center">
         <Row className="banner-comp-img">
           <img data-aos="zoom-in" src={currentScreen < 768 ? MobileBanner : DesktopBanner} alt="baby-spell-frog"/>
