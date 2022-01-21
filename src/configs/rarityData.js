@@ -1,6 +1,8 @@
-import Img1 from "../assets/imgs/epic.png";
-import Img2 from "../assets/imgs/rare.png";
-import Img3 from "../assets/imgs/legend.png";
+import Img1 from "../assets/imgs/redFrog.png";
+import Img2 from "../assets/imgs/greenFrog.png";
+import Img3 from "../assets/imgs/fashionFrog.png";
+import Img4 from "../assets/imgs/fashionFrog1.png";
+import Img5 from "../assets/imgs/fashionFrog2.png";
 
 export const rarityData = [
   {
@@ -20,12 +22,12 @@ export const rarityData = [
   },
   {
     rank: "SUP RARE",
-    ava: Img2,
+    ava: Img4,
     percent: "10%"
   },
   {
     rank: "SUB LEGEND",
-    ava: Img3,
+    ava: Img5,
     percent: "25%"
   },
 ];
