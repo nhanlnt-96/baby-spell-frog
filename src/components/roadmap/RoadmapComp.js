@@ -3,6 +3,7 @@ import {Col, Container, Row} from "react-bootstrap";
 import TitleComp from "../title/TitleComp";
 
 import "./RoadmapComp.scss";
+import {roadmapData} from "../../configs/roadmapData";
 
 const RoadmapComp = () => {
   return (
@@ -10,28 +11,27 @@ const RoadmapComp = () => {
       <Container className="roadmap-comp-container">
         <TitleComp title={"ROADMAP"}/>
         <Row className="roadmap-comp-content justify-content-center align-items-center">
-          <div className="roadmap-comp-content-container">
-            {
-              [...new Array(5)].map((val, index) => (
-                <Col data-aos="fade-up" index={index} className="roadmap-comp-content-item">
-                  <div className="content-box">
-                    <div className="content-container">
-                      <div className="title-container">
-                        <h6 className="title">Lorem.</h6>
-                      </div>
-                      <div className="subtitle-container">
-                        <p className="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aut
-                          dolorum facere fugit sequi voluptatem.</p>
-                      </div>
+          {/*<div className="roadmap-comp-content-container">*/}
+          {
+            roadmapData.map((val, index) => (
+              <Col lg={4} md={4} sm={12} data-aos="fade-up" index={index} className="roadmap-comp-content-item">
+                <div className="content-box">
+                  <div className="content-container">
+                    <div className="title-container d-flex justify-content-center align-items-center">
+                      <h6 className="title">{val.title}</h6>
                     </div>
-                    <div className="roadmap-number d-flex justify-content-center align-items-center">
-                      <p className="number">{`0${(index++) + 1}`}</p>
+                    <div className="subtitle-container">
+                      <p className="content">{val.content}</p>
                     </div>
                   </div>
-                </Col>
-              ))
-            }
-          </div>
+                  <div className="roadmap-number d-flex justify-content-center align-items-center">
+                    <p className="number">{val.phase}</p>
+                  </div>
+                </div>
+              </Col>
+            ))
+          }
+          {/*</div>*/}
         </Row>
       </Container>
     </Container>
