@@ -13,7 +13,7 @@ const FaqComp = () => {
         <Accordion className="accordion-custom">
           {
             faqData.map((main, index) => (
-              <Accordion.Item data-aos="fade-up" key={index}
+              <Accordion.Item data-aos={index === faqData.length - 1 ? null :'fade-up'} key={index}
                               eventKey={index.toString()}>
                 <Accordion.Header>{main.question}</Accordion.Header>
                 <Accordion.Body>
