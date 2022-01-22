@@ -15,16 +15,16 @@ export const menuData = [
     label: "ROADMAP",
     path: "#roadmap"
   },
-  {
-    label: "RARITY",
-    path: "#rarity"
-  },
+  // {
+  //   label: "RARITY",
+  //   path: "#rarity"
+  // },
   {
     label: "FAQ",
     path: "#faq"
   },
-  {
-    label: "TEAM",
-    path: "#team"
-  },
+  // {
+  //   label: "TEAM",
+  //   path: "#team"
+  // },
 ]

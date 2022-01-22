@@ -28,12 +28,12 @@ const MainLayout = () => {
       <Row id="faq">
         <FAQComp/>
       </Row>
-      <Row id="rarity">
-        <RarityComp/>
-      </Row>
-      <Row id="team">
-        <TeamComp/>
-      </Row>
+      {/*<Row id="rarity">*/}
+      {/*  <RarityComp/>*/}
+      {/*</Row>*/}
+      {/*<Row id="team">*/}
+      {/*  <TeamComp/>*/}
+      {/*</Row>*/}
     </Container>
   );
 };
