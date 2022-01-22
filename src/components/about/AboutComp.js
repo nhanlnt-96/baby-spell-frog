@@ -18,8 +18,6 @@ const AboutComp = () => {
                 hop into Abracadabra Money. Your frog will work hard for 30 days using interest baring assets as
                 collateral within Abracadabra to provide you with a return in Magic Internet Money (MIM).
                 In Simple terms, hold on to your Frog and you will receive a return for doing so every month.</p>
-              <p data-aos="fade-right" className="subtitle-text">All other info is in the medium link, have a look and
-                let me know what you think and if we should pull any of that info onto the landing page.</p>
             </div>
             <div className="about-button">
               <PrimaryButton data-aos="fade-down" buttonName={"LEARN MORE"}/>
