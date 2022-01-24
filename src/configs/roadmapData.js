@@ -2,7 +2,7 @@ export const roadmapData = [
   {
     phase: "01",
     title: "Phaze 1 - 1000 Frogs (0.30 BNB)",
-    content: "60 days in Abracadabra."
+    content: "Our expert degen farmers will will spend the first 60 days in Abracadabra, providing interest baring assets (stable coins) to gain access to additional MIM with which to find advantageous positions on other farms. This degen box style of farming will be closely monitored by us. We will also provide Frog owners with a Debank link which is used to track our results in real time. Watch us wrap, stake and combine tokens and calculate your return per frog."
   },
   {
     phase: "02",
