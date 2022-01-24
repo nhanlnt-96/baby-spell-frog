@@ -14,7 +14,7 @@ const RoadmapComp = () => {
           {/*<div className="roadmap-comp-content-container">*/}
           {
             roadmapData.map((val, index) => (
-              <Col lg={4} md={4} sm={12} data-aos="fade-up" index={index} className="roadmap-comp-content-item">
+              <div lg={4} md={4} sm={12} data-aos="fade-up" index={index} className="roadmap-comp-content-item">
                 <div className="content-box">
                   <div className="content-container">
                     <div className="title-container d-flex justify-content-center align-items-center">
@@ -28,7 +28,7 @@ const RoadmapComp = () => {
                     <p className="number">{val.phase}</p>
                   </div>
                 </div>
-              </Col>
+              </div>
             ))
           }
           {/*</div>*/}

@@ -12,7 +12,7 @@ const AboutComp = () => {
       <Container className="about-comp-container d-flex flex-column justify-content-center align-items-center">
         <Row className="about-comp-content">
           <Col lg={8} md={8} sm={12} className="about-left-side">
-            <TitleComp title="Spell Frogs Introduction"/>
+            <TitleComp title="Introduction"/>
             <div className="subtitle">
               <p data-aos="fade-left" className="subtitle-text">Our first 1000 Baby Frogs will, once minted, immediately
                 hop into Abracadabra Money. Your frog will work hard for 30 days using interest baring assets as

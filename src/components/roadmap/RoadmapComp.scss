@@ -19,28 +19,25 @@
 
 .roadmap-comp-container .roadmap-comp-content {
   min-height: calc(100% - 48px - 24px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 24px;
 
-  &-container {
-    display: grid;
-    @include mobile {
-      grid-template-columns: repeat(1, 1fr);
-    }
-    @include tablet {
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 24px;
-    }
-    @include desktop {
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 24px;
-    }
-    @include wide-desktop {
-      grid-template-columns: repeat(5, 1fr);
-      grid-gap: unset;
-    }
+  //&-container {
+  @include mobile {
+    grid-template-columns: repeat(1, 1fr);
   }
+  //@include desktop {
+  //  grid-template-columns: repeat(3, 1fr);
+  //  grid-gap: 24px;
+  //}
+  //@include wide-desktop {
+  //  grid-template-columns: repeat(5, 1fr);
+  //  grid-gap: unset;
+  //}
+  //}
 
   &-item {
-    height: 450px;
     position: relative;
 
     @each $index, $color in $arrayColor {
@@ -145,12 +142,11 @@
 }
 
 .roadmap-comp-content-item .content-box {
-  height: 100%;
   padding: 24px 0;
   position: relative;
 
   .content-container {
-    height: 100%;
+    min-height: 450px;
     background-color: #E0D8D8;
     border-radius: 40px 0;
     padding: 12px 24px;
@@ -168,10 +164,12 @@
     }
 
     .subtitle-container {
-      margin-top: 24px;
+      margin-top: 12px;
+      padding-bottom: 24px;
 
       .content {
         font-size: 20px;
+        line-height: 30px;
       }
     }
   }
