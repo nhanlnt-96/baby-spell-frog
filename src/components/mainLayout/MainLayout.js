@@ -16,9 +16,6 @@ const MainLayout = () => {
       <Row id="home" style={{backgroundColor: "#FBEDFF"}}>
         <BannerComp/>
       </Row>
-      <Row id="about">
-        <AboutComp/>
-      </Row>
       <Row id="collection">
         <CollectionComp/>
       </Row>
@@ -28,12 +25,6 @@ const MainLayout = () => {
       <Row id="faq">
         <FAQComp/>
       </Row>
-      {/*<Row id="rarity">*/}
-      {/*  <RarityComp/>*/}
-      {/*</Row>*/}
-      {/*<Row id="team">*/}
-      {/*  <TeamComp/>*/}
-      {/*</Row>*/}
     </Container>
   );
 };
