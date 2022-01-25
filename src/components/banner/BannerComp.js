@@ -14,6 +14,7 @@ import PrimaryButton from "../primaryButton/PrimaryButton";
 import {notification} from "antd";
 
 import "./BannerComp.scss";
+import WavesComps from "../waves/WavesComp";
 
 export const useWindowSize = () => {
   const [currentWidth, setCurrentWidth] = useState(0);
@@ -167,10 +168,10 @@ const BannerComp = () => {
               <h1 data-aos="zoom-in" className="title">welcome to baby spell frogs</h1>
             </div>
             <div className="content-subtitle">
-              <h2 data-aos="fade-down" className="subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Commodi cum deleniti
-                deserunt error laboriosam odio omnis placeat quos. Blanditiis eos est fugiat, fugit itaque neque quia
-                repellat sequi vero voluptas.</h2>
+              <h2 data-aos="fade-down" className="subtitle">Our first 1000 Baby Frogs will, once minted, immediately
+                hop into Abracadabra Money. Your frog will work hard for 30 days using interest baring assets as
+                collateral within Abracadabra to provide you with a return in Magic Internet Money (MIM).
+                In Simple terms, hold on to your Frog and you will receive a return for doing so every month.</h2>
             </div>
             {
               !blockchain.account && (
