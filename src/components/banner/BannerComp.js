@@ -31,7 +31,7 @@ export const useWindowSize = () => {
 
 const BannerComp = () => {
   const currentScreen = useWindowSize();
-  const [buttonName, setButtonName] = useState("JOIN US");
+  const [buttonName, setButtonName] = useState("MINT NOW");
   const [buttonActive, setButtonActive] = useState(false);
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
@@ -141,7 +141,7 @@ const BannerComp = () => {
   useEffect(() => {
     if (buttonActive && !blockchain.account) {
       setButtonActive(false);
-      setButtonName("JOIN US");
+      setButtonName("THANKS");
     }
   });
   return (
@@ -164,7 +164,7 @@ const BannerComp = () => {
           <Col lg={blockchain.account ? 6 : 12} md={blockchain.account ? 6 : 12} sm={12}
                className="left-side d-flex flex-column justify-content-center align-items-center">
             <div className="content-title">
-              <h1 data-aos="zoom-in" className="title">welcome to baby spell frog</h1>
+              <h1 data-aos="zoom-in" className="title">welcome to baby spell frogs</h1>
             </div>
             <div className="content-subtitle">
               <h2 data-aos="fade-down" className="subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
