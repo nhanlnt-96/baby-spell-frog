@@ -169,7 +169,7 @@ const BannerComp = () => {
             </div>
             <div className="content-subtitle">
               <h2 data-aos="fade-down" className="subtitle">Our first 1000 Baby Frogs will, once minted, immediately
-                hop into Abracadabra Money. Your frog will work hard for 30 days using interest baring assets as
+                hop into Abracadabra Money. Your frog will work hard for 30 days using interest bearing assets as
                 collateral within Abracadabra to provide you with a return in Magic Internet Money (MIM).
                 In Simple terms, hold on to your Frog and you will receive a return for doing so every month.</h2>
             </div>
